@@ -7,13 +7,14 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 # TensorFlow 로그 숨기기
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+# 프로젝트 루트 경로 계산
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # AI 디렉토리 기준
+MODEL_PATH = os.path.join(BASE_DIR, "model", "recycling_model.h5")
+
 # 클래스 이름 정의
 CLASS_NAMES = ["can", "glass", "paper", "plastic", "plastic_bag", "styrofoam"]
 
-# 모델 경로 설정
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # 상위 디렉토리(AI)로 이동
-MODEL_PATH = os.path.join(BASE_DIR, "model", "recycling_model.h5")  # model 폴더 안의 모델 파일
-
+# 모델 로드
 model = load_model(MODEL_PATH)
 
 def predict(image_path):
@@ -30,4 +31,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     result = predict(args.image)
-    print(result)
+    print(result)  # 예측된 클래스만 출력

@@ -18,6 +18,7 @@ const upload = multer({ dest: UPLOAD_DIR });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// 라우트 설정
 app.use("/predict", predictRoute);
 app.use("/user", userRoute);
 
