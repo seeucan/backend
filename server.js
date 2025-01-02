@@ -8,7 +8,8 @@ const app = express();
 const PORT = 3000;
 
 const BASE_DIR = path.resolve();
-const UPLOAD_DIR = path.join(BASE_DIR, "uploads");
+const AI_DIR = path.join(BASE_DIR, "AI");
+const UPLOAD_DIR = path.join(AI_DIR, "uploads");
 
 // Multer 설정 (업로드 파일 저장 디렉토리)
 const upload = multer({ dest: UPLOAD_DIR });
