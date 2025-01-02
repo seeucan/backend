@@ -24,7 +24,7 @@ app.use("/user", userRoute);
 
 // 404 에러 핸들링
 app.use((req, res) => {
-    res.status(404).send("404 Not Found");
+    res.status(404).send({ message : "404 Not Found" });
 });
 
 // 서버 실행
